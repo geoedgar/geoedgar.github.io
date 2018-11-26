@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    
+    <main>
+        <header class="menu__wrapper">
+            <div class="menu__brand">
+                <a href="#"><h1>GEOMAP<span style="color: #0f0;">.</span></h1></a>
+            </div>
+            <div class="menu__dropdown">
+                <div class="dropdown">
+                    <button onclick="toggle_show()" class="dropdown__button"><i class="fa fa-map-marker"></i>&nbsp; CASAS DE ENTRETENIMENTO <i class="fa fa-angle-down"></i></button>
+                    <div id="dropdown" class="dropdown__content">
+                        <!--a href="#home"><i class="fa fa-map-marker"></i>&nbsp; Farmácias São João</a>
+                        <a href="#about"><i class="fa fa-map-marker"></i>&nbsp; Mercados Nicolini</a>
+                        <a href="#contact"><i class="fa fa-map-marker"></i>&nbsp; Igrejas blabla</a>
+                        <a href="#contact"><i class="fa fa-map-marker"></i>&nbsp; ptros</a-->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="map__wrapper" id="map">
+            <!----div id="map"></div-->
+        </section>        
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var labelIndex = 0;
+        // Initialize and add the map
+        function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: {lat: -31.33141349, lng: -54.10291810}
+        });
+
+        setTimeout(function(){
+            dropPoints();
+        },500);
+        
+        /*google.maps.event.addListener(map, 'click', function(event) {
+            addMarker(event.latLng, map);
+        });*/
+
+      }
+
+      function addMarker(location, map) {
+  // Add the marker at the clicked location, and add the next-available label
+  // from the array of alphabetical characters.
+  var marker = new google.maps.Marker({
+    position: location,
+    label: labels[labelIndex++ % labels.length],
+    map: map
+  });
+}
+
+
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1fLZlDID2Zd3ZsF6epL6OPYqp9dLur3U&callback=initMap"></script>
+            
+</body>
+</html>

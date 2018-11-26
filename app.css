@@ -1,0 +1,73 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.map__wrapper {
+    width: 100vw;
+    height: 100vh;
+    background: #a01c1c;
+    /*background-image: url("https://s23219.pcdn.co/wp-content/uploads/2014/10/London-Google-Maps.jpg");*/
+}
+.menu__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    width: 100vw;
+    background: linear-gradient(#000000cc, #00000000);
+    z-index: 5;
+}
+.menu__brand a h1{
+    color: #ffffff;
+    text-shadow: 2px 2px 4px #000;
+}
+.menu__brand a{
+    text-decoration: none;
+}
+
+.dropdown__button {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0px solid rgb(212, 212, 212);
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 2px 4px #000;
+    padding: 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/*
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}*/
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown__content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    border-radius: 5px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown__content a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: rgba(0, 0, 0, 0.603);}
+
+.show {display: block;}
